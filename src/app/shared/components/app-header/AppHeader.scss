@@ -1,0 +1,34 @@
+@import '../../../../assets/styles/theme';
+
+.app-header {
+	display: flex;
+	padding: 8px 5px;
+	background-color: $color-primary;
+
+	.navbar {
+		width: 100%;
+		margin: auto;
+		display: flex;
+
+		&-brand {
+			margin-right: 20px;
+
+			img {
+				height: 40px;
+			}
+		}
+
+		&-content {
+			height: 40px;
+			flex: 1;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.app-header {
+		.navbar {
+			width: 80%;
+		}
+	}
+}

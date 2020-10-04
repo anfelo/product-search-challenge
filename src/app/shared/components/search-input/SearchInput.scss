@@ -1,0 +1,14 @@
+@import '../../../../assets/styles/theme';
+
+.control {
+	width: 100%;
+	display: flex;
+	font-size: 18px;
+
+	.input {
+		padding: 7px 60px 9px 15px;
+		height: 40px;
+		border: none;
+		flex: 1;
+	}
+}

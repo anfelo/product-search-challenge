@@ -1,0 +1,18 @@
+@import './normalize';
+@import './theme';
+
+body {
+	min-height: 100vh;
+	background-color: $color-light;
+}
+
+// Buttons global styles
+
+.button {
+	border: none;
+	min-width: 40px;
+	min-height: 40px;
+	.is-light {
+		background-color: $color-light;
+	}
+}
