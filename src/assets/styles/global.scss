@@ -4,6 +4,13 @@
 body {
 	min-height: 100vh;
 	background-color: $color-light;
+	color: $color-dark;
+}
+
+p {
+	margin-top: 16px;
+	margin-bottom: 16px;
+	font-size: $font-size-text;
 }
 
 // Buttons global styles
@@ -12,7 +19,34 @@ body {
 	border: none;
 	min-width: 40px;
 	min-height: 40px;
-	.is-light {
+	&.is-light {
 		background-color: $color-light;
+	}
+}
+
+// Panels global styles
+
+.panel {
+	padding: 16px;
+	border-radius: $border-radius;
+	box-shadow: 1px 1px 4px rgba($color: $color-light, $alpha: 0.5);
+
+	&.is-white {
+		background-color: $color-white;
+	}
+}
+
+// Image global styles
+
+.image {
+	border-radius: $border-radius;
+	overflow: hidden;
+	&.is-180x180 {
+		width: 180px;
+		height: 180px;
+	}
+
+	img {
+		height: 100%;
 	}
 }

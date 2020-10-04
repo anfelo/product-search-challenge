@@ -1,0 +1,27 @@
+@import '../../../../assets/styles/theme';
+
+.media {
+	display: flex;
+	padding: 16px 0;
+
+	&-left {
+		flex: 1;
+		margin: 0 16px;
+		max-width: 180px;
+	}
+
+	&-content {
+		flex: 1;
+		margin-right: 16px;
+	}
+
+	&-right {
+		min-width: 180px;
+		display: flex;
+
+		small {
+			font-size: $font-size-small;
+			color: $color-text;
+		}
+	}
+}

@@ -3,13 +3,15 @@ import React from 'react';
 import AppHeader from '../../../shared/components/app-header/AppHeader';
 import SearchInput from '../../../shared/components/search-input/SearchInput';
 
+import './PublicLayout.scss';
+
 const PublicLayout = (props) => {
 	return (
 		<>
 			<AppHeader>
 				<SearchInput></SearchInput>
 			</AppHeader>
-			<main>{props.children}</main>
+			<main className='main-content'>{props.children}</main>
 		</>
 	);
 };
