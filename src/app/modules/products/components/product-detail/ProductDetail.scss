@@ -1,0 +1,21 @@
+@import '../../../../../assets/styles/theme';
+
+.product-detail {
+	&__description {
+		padding-left: 16px;
+	}
+
+	&__aside {
+		padding-top: 16px;
+		padding-right: 16px;
+	}
+
+	&__column-left {
+		max-width: 680px;
+	}
+
+	&__column-right {
+		min-width: 300px;
+		max-width: 300px;
+	}
+}

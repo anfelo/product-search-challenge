@@ -1,0 +1,12 @@
+@import '../../../../assets/styles/theme';
+
+.app-breadcrumbs {
+	display: flex;
+	align-items: center;
+	margin-bottom: 16px;
+	color: $color-grey;
+
+	small {
+		margin-right: 5px;
+	}
+}

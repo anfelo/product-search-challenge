@@ -8,9 +8,31 @@ body {
 }
 
 p {
+	font-size: $font-size-text;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
 	margin-top: 16px;
 	margin-bottom: 16px;
-	font-size: $font-size-text;
+}
+
+// Layout global styles
+
+.row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
 }
 
 // Buttons global styles
@@ -19,8 +41,20 @@ p {
 	border: none;
 	min-width: 40px;
 	min-height: 40px;
+	border-radius: $border-radius;
 	&.is-light {
 		background-color: $color-light;
+	}
+	&.is-secondary {
+		background-color: $color-secondary;
+		color: $color-white;
+	}
+	&.is-block {
+		width: 100%;
+	}
+
+	&:hover {
+		opacity: 0.9;
 	}
 }
 
@@ -48,5 +82,25 @@ p {
 
 	img {
 		height: 100%;
+	}
+}
+
+// Text modifiers
+
+.title {
+	font-size: 28px;
+	font-weight: normal;
+}
+
+.has-text-grey {
+	color: $color-grey;
+}
+
+.is-size {
+	&-1 {
+		font-size: 46px;
+	}
+	&-2 {
+		font-size: 24px;
 	}
 }

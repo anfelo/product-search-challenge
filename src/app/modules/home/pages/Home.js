@@ -3,7 +3,7 @@ import React from 'react';
 import PublicLayout from '../../../core/layouts/public-layout/PublicLayout';
 
 const Home = () => {
-	return <PublicLayout>Content</PublicLayout>;
+	return <PublicLayout></PublicLayout>;
 };
 
 export default Home;

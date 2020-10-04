@@ -13,4 +13,9 @@
 		border-bottom-left-radius: $border-radius;
 		flex: 1;
 	}
+
+	.button {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
 }
