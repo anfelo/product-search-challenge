@@ -28,6 +28,10 @@ p {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+
+	&.is-centered {
+		justify-content: center;
+	}
 }
 
 .column {
@@ -82,6 +86,8 @@ p {
 
 	img {
 		height: 100%;
+		margin: auto;
+		display: block;
 	}
 }
 

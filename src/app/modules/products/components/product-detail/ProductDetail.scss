@@ -10,12 +10,26 @@
 		padding-right: 16px;
 	}
 
+	&__image {
+		max-height: 500px;
+	}
+
 	&__column-left {
 		max-width: 680px;
+		margin-right: 16px;
 	}
 
 	&__column-right {
 		min-width: 300px;
 		max-width: 300px;
+	}
+
+	&__price {
+		position: relative;
+
+		&--decimals {
+			position: absolute;
+			top: 5px;
+		}
 	}
 }

@@ -1,7 +1,10 @@
 const express = require('express');
 const path = require('path');
+const routes = require('./routes');
 
 const app = express();
+
+app.use('/api', routes.productsRoutes);
 
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, '/../build')));
@@ -10,6 +13,23 @@ app.use(express.static(path.join(__dirname, '/../build')));
 // match one above, send back React's index.html file.
 app.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname + '/../build/index.html'));
+});
+
+// catch 404 and forward to error handler
+app.use((req, res, next) => {
+	const err = new Error('Not Found');
+	err.status = 404;
+	next(err);
+});
+
+// Error Handler
+app.use((err, req, res, next) => {
+	res.status(err.status || 500);
+	res.json({
+		error: {
+			message: err.message
+		}
+	});
 });
 
 const port = process.env.PORT || 5000;

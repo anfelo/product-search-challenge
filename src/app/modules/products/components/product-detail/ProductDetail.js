@@ -1,8 +1,11 @@
 import React from 'react';
 
+import * as currencyHelpers from '../../../../shared/helpers/currency/currency';
+import * as productService from '../../services/products.service';
+
 import './ProductDetail.scss';
 
-const ProductDetail = () => {
+const ProductDetail = ({ item }) => {
 	return (
 		<div className='panel is-white'>
 			<div className='product-detail'>
@@ -21,7 +24,8 @@ const ProductDetail = () => {
 					<div className='product-detail__column-right column'>
 						<div className='product-detail__aside'>
 							<small>
-								{item.condition} - {item.sold_quantity} vendidos
+								{productService.getProductCondition(item.condition)} -{' '}
+								{item.sold_quantity} vendidos
 							</small>
 							<div className='row'>
 								<p className='is-size-2'>
@@ -29,7 +33,15 @@ const ProductDetail = () => {
 								</p>
 							</div>
 							<div className='row'>
-								<p className='is-size-1'>$ {item.price.amount}</p>
+								<p className='product-detail__price is-size-1'>
+									{currencyHelpers.convertNumberToCurrency(
+										item.price.amount,
+										item.price.currency
+									)}
+									<small className='product-detail__price--decimals is-size-2'>
+										{!item.price.decimals ? '00' : item.price.decimals}
+									</small>
+								</p>
 							</div>
 							<p>
 								<button type='button' className='button is-secondary is-block'>
@@ -45,16 +57,3 @@ const ProductDetail = () => {
 };
 
 export default ProductDetail;
-
-const item = {
-	id: 'MLA866041474',
-	title: 'Notebook Lenovo Cloudbook Ip S150 Amd A4 4gb Ssd 64gb Win10 ',
-	price: { currency: 'COP', amount: 43999.12, decimals: 0.12 },
-	picture: 'http://http2.mlstatic.com/D_955412-MLA42473216214_072020-O.jpg',
-	condition: 'new',
-	free_shipping: true,
-	author: 'Capital Federal',
-	sold_quantity: 20,
-	description:
-		'LRPC ELECTRONICA Notebook Lenovo Cloudbook Ip S150 Amd A4 4gb Ssd 64gb Win10 • Serie: Ideapad Cloudbook • Modelo: S150 81VS000GAR • Procesador: AMD A4 9120E 1.5G 2C • Memoria: 4 GB SO-DIMM 2400 MHz • Gráficos: AMD Radeon R4 series • Almacenamiento: 64 GB SSD eMMC • Pantalla: 14" 1366 x 768 (HD) TN • Sistema Operativo: Windows 10 Home • Conectividad: Wi-fi 1 802.11 - Bluetooth 4.2 • Puertos: 2 x USB 3.1 1 x Hdmi 1 x combo auricular/micrófono • Dimensiones: 327.1 x 235 x 20.9 mm • Peso: 1.4 Kg • Color: Light Blue EMITIMOS FACTURA A ó B'
-};
