@@ -21,6 +21,17 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 (Note: Must run `npm run serve` or `npm run serve:dev` in another console tab, to run the server)
 
+### `npm serve`
+
+Starts the Express server.<br />
+API calls available:
+* GET `http://localhost:5000/api/items?q=:query`
+* GET `http://localhost:5000/api/items/:id`
+
+### `npm serve:dev`
+
+Starts the Express server in development mode using `nodemon` to watch for changes.<br />
+
 ### `npm run build`
 
 Builds the frontend app for production to the `build` folder.<br />
