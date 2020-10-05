@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './AppHeader.scss';
-import logo from '../../../../assets/img/ml_logo.png';
+import logo from '../../../../assets/img/ml_logo_2x.png';
 
 const AppHeader = (props) => {
 	return (
