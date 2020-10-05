@@ -2,6 +2,7 @@
 
 .product-detail {
 	&__description {
+		margin-top: 64px;
 		padding-left: 16px;
 	}
 
@@ -20,8 +21,7 @@
 	}
 
 	&__column-right {
-		min-width: 300px;
-		max-width: 300px;
+		min-width: 250px;
 	}
 
 	&__price {

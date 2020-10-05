@@ -6,6 +6,12 @@
 
 @media (min-width: 768px) {
 	.main-content {
-		width: 80%;
+		width: 90%;
+	}
+}
+
+@media (min-width: 1440px) {
+	.main-content {
+		width: 60%;
 	}
 }

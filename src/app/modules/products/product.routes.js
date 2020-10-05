@@ -1,8 +1,19 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import ProductSearch from './pages/product-search/ProductSearch';
-import ProductDetailPage from './pages/product-detail/ProductDetailPage';
+import lazyComponent from '../../shared/components/lazy-component/LazyComponent';
+
+const ProductSearch = lazyComponent(() =>
+	import('./pages/product-search/ProductSearch').then(
+		(module) => module.default
+	)
+);
+
+const ProductDetailPage = lazyComponent(() =>
+	import('./pages/product-detail/ProductDetailPage').then(
+		(module) => module.default
+	)
+);
 
 export default (
 	<>

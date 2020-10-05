@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import routes from './routes';
+import * as serviceWorker from './serviceWorker';
 
 // Components
 import App from './app/App';
@@ -14,3 +15,5 @@ ReactDOM.render(
 	</React.StrictMode>,
 	document.getElementById('root')
 );
+
+serviceWorker.unregister();

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import * as productsService from '../../services/products.service';
+import { loadImage } from '../../../../shared/helpers/utils/utils';
 
 import PublicLayout from '../../../../core/layouts/public-layout/PublicLayout';
 import ProductDetail from '../../components/product-detail/ProductDetail';
@@ -13,18 +14,17 @@ const ProductDetailPage = () => {
 	const [product, setProduct] = useState(null);
 	const [loading, setLoading] = useState(false);
 
-	const searchItem = async () => {
-		if (id) {
-			setLoading(true);
-			const results = await productsService.getProduct(id);
-			setProduct(results.data.item);
-			setLoading(false);
-		}
-	};
-
 	useEffect(() => {
-		searchItem();
-	}, []);
+		(async () => {
+			if (id) {
+				setLoading(true);
+				const results = await productsService.getProduct(id);
+				setProduct(results.data.item);
+				await loadImage(results.data.item.picture);
+				setLoading(false);
+			}
+		})();
+	}, [id]);
 
 	return (
 		<PublicLayout>

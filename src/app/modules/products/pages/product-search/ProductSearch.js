@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 
 import * as productsService from '../../services/products.service';
+import { loadImage } from '../../../../shared/helpers/utils/utils';
 
 import PublicLayout from '../../../../core/layouts/public-layout/PublicLayout';
 import SearchResultsList from '../../components/search-results-list/SearchResultsList';
@@ -19,17 +20,18 @@ const ProductSearch = () => {
 		history.push('/');
 	}
 
-	const searchItems = async () => {
-		if (searchText) {
-			setLoading(true);
-			const results = await productsService.searchProducts(searchText);
-			setProducts(results.data.items);
-			setLoading(false);
-		}
-	};
-
 	useEffect(() => {
-		searchItems();
+		(async () => {
+			if (searchText) {
+				setLoading(true);
+				const results = await productsService.searchProducts(searchText);
+				await Promise.all(
+					results.data.items.map((item) => loadImage(item.picture))
+				);
+				setProducts(results.data.items);
+				setLoading(false);
+			}
+		})();
 	}, [searchText]);
 
 	return (
