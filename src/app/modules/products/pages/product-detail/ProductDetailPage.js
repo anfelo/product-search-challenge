@@ -18,10 +18,16 @@ const ProductDetailPage = () => {
 		(async () => {
 			if (id) {
 				setLoading(true);
-				const results = await productsService.getProduct(id);
-				setProduct(results.data.item);
-				await loadImage(results.data.item.picture);
-				setLoading(false);
+				try {
+					const results = await productsService.getProduct(id);
+					console.log(results);
+					setProduct(results.data.item);
+					await loadImage(results.data.item.picture);
+				} catch (error) {
+					console.error(error);
+				} finally {
+					setLoading(false);
+				}
 			}
 		})();
 	}, [id]);
@@ -36,7 +42,7 @@ const ProductDetailPage = () => {
 			) : product ? (
 				<ProductDetail item={product} isLoading={loading}></ProductDetail>
 			) : (
-				<>
+				<div className='panel is-white'>
 					<h2 className='title'>El producto que buscas no existe</h2>
 					<ul>
 						<li>Revisa la ortografía de la palabra.</li>
@@ -44,7 +50,7 @@ const ProductDetailPage = () => {
 							Navega por las categorías para encontrar un producto similar
 						</li>
 					</ul>
-				</>
+				</div>
 			)}
 		</PublicLayout>
 	);
